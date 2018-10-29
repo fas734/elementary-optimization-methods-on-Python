@@ -1,0 +1,345 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"f",
+				"f_x"
+			],
+			[
+				"G",
+				"GetInstance"
+			],
+			[
+				"inc",
+				"include"
+			],
+			[
+				"a",
+				"apointer"
+			],
+			[
+				"size",
+				"size_t"
+			],
+			[
+				"in",
+				"inc\t#include <…>"
+			],
+			[
+				"my",
+				"my_number"
+			],
+			[
+				"ne",
+				"newSignal"
+			],
+			[
+				"n",
+				"n-2"
+			]
+		]
+	},
+	"buffers":
+	[
+	],
+	"build_system": "",
+	"build_system_choices":
+	[
+	],
+	"build_varint": "",
+	"command_palette":
+	{
+		"height": 392.0,
+		"last_filter": "",
+		"selected_items":
+		[
+			[
+				"",
+				"PackageResourceViewer: Open Resource"
+			],
+			[
+				"Snippet: ",
+				"Snippet: my"
+			],
+			[
+				"PackageResourceViewer: Op",
+				"PackageResourceViewer: Open Resource"
+			],
+			[
+				"PackageResour",
+				"PackageResourceViewer: Open Resource"
+			],
+			[
+				"Pac",
+				"PackageResourceViewer: Open Resource"
+			],
+			[
+				"Install",
+				"Package Control: Install Package"
+			],
+			[
+				"Package Control: install",
+				"Package Control: Install Package"
+			]
+		],
+		"width": 442.0
+	},
+	"console":
+	{
+		"height": 228.0,
+		"history":
+		[
+		]
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"expanded_folders":
+	[
+		"/home/fas734/programming/python/MO/single-rang-find"
+	],
+	"file_history":
+	[
+		"/home/fas734/programming/python/MO/single-rang-find/oh.py",
+		"/home/fas734/programming/python/MO/single-rang-find/file.py",
+		"/media/fas734/data/google/PC-config.txt",
+		"/home/fas734/programming/python/djgirls.py",
+		"/media/fas734/data/google/studentship-reports/sem-8/asts/l-specification-K1986ВЕ92QI.pdf.lnk",
+		"/home/fas734/temp/teachers.txt",
+		"/home/fas734/robotis/project/fas734/main.cpp",
+		"/home/fas734/robotis/framework/fas734-notes.c",
+		"/home/fas734/robotis/project/demo/main.cpp",
+		"/home/fas734/robotis/project/fas734/main-glukhov.cpp",
+		"/home/fas734/robotis/project/SimpleExampleServer2_0.py",
+		"/home/fas734/robotis/project/SimpleWebSocketServer/SimpleExampleServer.py",
+		"/home/fas734/robotis/framework/src/CM730.cpp",
+		"/home/fas734/robotis/framework/include/CM730.h",
+		"/home/fas734/robotis/project/fas734/main-simplify-from-glukhovCpp.cpp",
+		"/home/fas734/robotis/project/fas734/Makefile",
+		"/home/fas734/robotis/project/fas734/main-simplify.cpp",
+		"/home/fas734/robotis/framework/src/motion/modules/Action.cpp",
+		"/home/fas734/robotis/framework/include/Action.h",
+		"/home/fas734/robotis/framework/src/motion/MotionManager.cpp",
+		"/home/fas734/robotis/framework/include/MotionManager.h",
+		"/home/fas734/robotis/framework/include/MotionModule.h",
+		"/home/fas734/robotis/project/tutorial/action_script/main.cpp",
+		"/home/fas734/robotis/project/glukhov_new/main.cpp",
+		"/home/fas734/robotis/wtf.cpp",
+		"/home/fas734/programming/cpp-enciphering/qaru-site-crypto++.cpp",
+		"/media/fas734/w7/Users/fas734w7/AppData/Roaming/Sublime Text 3/Local/Session.sublime_session",
+		"/home/fas734/robotis/round-going.cpp",
+		"/home/fas734/robotis/Makefile",
+		"/home/fas734/programming/gnu-ref.sublime-project",
+		"/home/fas734/downloads/kod.txt",
+		"/home/fas734/programming/fib.c",
+		"/home/fas734/downloads/kod(1).txt",
+		"/home/fas734/programming/untitled.c",
+		"/home/fas734/programming/GNU-reference/habr-linker.c",
+		"/home/fas734/programming/GNU-reference/precedence.c",
+		"/home/fas734/programming/GNU-reference/assignments.c",
+		"/home/fas734/programming/GNU-reference/text.o",
+		"/home/fas734/programming/GNU-reference/precedence.asm",
+		"/sys/devices/pci0000:00/0000:00:02.0/drm/card0/card0-LVDS-1/intel_backlight/max_brightness",
+		"/sys/devices/pci0000:00/0000:00:02.0/drm/card0/card0-LVDS-1/intel_backlight/actual_brightness",
+		"/sys/devices/pci0000:00/0000:00:02.0/drm/card0/card0-LVDS-1/intel_backlight/bl_power",
+		"/sys/devices/pci0000:00/0000:00:02.0/drm/card0/card0-LVDS-1/intel_backlight/brightness",
+		"/home/fas734/.xsession-errors",
+		"/home/fas734/.xsession-errors.old",
+		"/home/fas734/.Xauthority",
+		"/home/fas734/programming/GNU-reference/text",
+		"/media/fas734/data/google/WAT/PHONES_and_MAILS.txt",
+		"/home/fas734/programming/GNU-reference/string.c",
+		"/home/fas734/programming/GNU-reference/temp.c",
+		"/home/fas734/temp/untitled.c",
+		"/home/fas734/programming/GNU-reference/member-access-expressions.c",
+		"/home/fas734/programming/GNU-reference/easy.c",
+		"/media/fas734/data/google/programming/C/GNU-reference/member-access-expressions.c",
+		"/media/fas734/data/google/programming/C/GNU-reference/non-primitive-data-types.c",
+		"/home/fas734/programming/GNU-reference/bit-counting.c",
+		"/home/fas734/programming/GNU-reference/pointers.c",
+		"/home/fas734/programming/GNU-reference/type_qualifiers-and-storage_class_specifiers.c",
+		"/home/fas734/programming/GNU-reference/print-this-year.c",
+		"/home/fas734/programming/GNU-reference/shifting.c",
+		"/home/fas734/programming/GNU-reference/size_t.c",
+		"/home/fas734/programming/GNU-reference/type_casts.c",
+		"/home/fas734/programming/GNU-reference/type_qualifiers-and-storage_class_specifiers.h",
+		"/home/fas734/.config/sublime-text-3/Packages/C++/Snippets/my.sublime-snippet",
+		"/home/fas734/programming/GNU-reference/type_",
+		"/usr/lib/gcc/x86_64-linux-gnu/4.8/include/stddef.h",
+		"/usr/include/linux/stddef.h",
+		"/media/fas734/data/google/studentship-reports/sem-8/besprovodnaya-svyazy/task.txt",
+		"/media/fas734/data/google/studentship-reports/sem-8/besprovodnaya-svyazy/lection-BESPROVOD-SVYAZY-28022018.txt",
+		"/media/fas734/data/google/studentship-reports/sem-8/besprovodnaya-svyazy/lab.txt",
+		"/home/fas734/.config/sublime-text-3/Packages/C++/Snippets/main()-(main).sublime-snippet",
+		"/home/fas734/.config/sublime-text-3/Packages/C++/Snippets/main()-(int main).sublime-snippet",
+		"/home/fas734/.config/sublime-text-3/Packages/C++/Comments (C++).tmPreferences",
+		"/home/fas734/programming/print-this-year.c",
+		"/home/fas734/programming/type_qualifiers-and-storage_class_specifiers.c",
+		"/home/fas734/programming/type_qualifiers-and-storage_class_specifiers.h",
+		"/home/fas734/programming/gnu-ref.c",
+		"/home/fas734/programming/gnu-ref.h",
+		"/home/fas734/programming/non-primitive-data-types.c",
+		"/home/fas734/.config/sublime-text-3/Packages/C++/Snippets/printf-..-(printf).sublime-snippet",
+		"/home/fas734/.config/sublime-text-3/Packages/C++/Snippets/struct.sublime-snippet",
+		"/home/fas734/.config/sublime-text-3/Packages/C++/Snippets/if-..-(if).sublime-snippet",
+		"/home/fas734/.config/sublime-text-3/Packages/C++/Snippets/forv.sublime-snippet",
+		"/home/fas734/.config/sublime-text-3/Packages/C++/Snippets/Enumeration.sublime-snippet",
+		"/home/fas734/.config/sublime-text-3/Packages/C++/Snippets/030-for-int-loop-(fori).sublime-snippet",
+		"/home/fas734/.config/sublime-text-3/Packages/C++/Snippets/$1.begin()-$1.end()-(beginend).sublime-snippet",
+		"/media/fas734/data/google/programming/gcc-notes.txt",
+		"/usr/lib/gcc/x86_64-linux-gnu/4.8/include/float.h",
+		"/home/fas734/programming/chars.c",
+		"/home/fas734/programming/function.c",
+		"/home/fas734/Downloads/xeys",
+		"/media/fas734/data/programming/hello.c",
+		"/media/fas734/data/books/security_hacking/Hacking-art_of_exploit_booksrc/pointer.c",
+		"/home/fas734/programming/hello.c",
+		"/media/fas734/data/distr/list_of_software-05_02_2018(0).txt",
+		"/media/fas734/data/distr/list_of_software-05_02_2018(1).txt",
+		"/media/fas734/data/books/security_hacking/Hacking-art_of_exploit_booksrc/notesearch.c",
+		"/media/fas734/data/books/security_hacking/Hacking-art_of_exploit_booksrc/hacking.h",
+		"/media/fas734/data/books/security_hacking/Hacking-art_of_exploit_booksrc/notetaker.c",
+		"/media/fas734/data/temp/screen-settings.txt"
+	],
+	"find":
+	{
+		"height": 39.0
+	},
+	"find_in_files":
+	{
+		"height": 340.0,
+		"where_history":
+		[
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+			"3f",
+			"1f",
+			"4.1f",
+			"%",
+			"golden_ratio",
+			"a",
+			"precision",
+			"betta",
+			"alpha",
+			"a"
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": true,
+		"replace_history":
+		[
+			"4.3f",
+			"ALPHA"
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"sheets":
+			[
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 26.0
+	},
+	"input":
+	{
+		"height": 116.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.find_results":
+	{
+		"height": 0.0
+	},
+	"pinned_build_system": "",
+	"project": "single-rang-find.sublime-project",
+	"replace":
+	{
+		"height": 70.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_symbol":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"selected_group": 0,
+	"settings":
+	{
+	},
+	"show_minimap": true,
+	"show_open_files": false,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 163.0,
+	"status_bar_visible": true,
+	"template_settings":
+	{
+		"max_columns": 1
+	}
+}
