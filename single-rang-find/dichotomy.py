@@ -8,31 +8,33 @@ import functions
 									# initialize
 a = random.randint(0, 13) - 1000	# random start of interval
 b = random.randint(0, 13) + 900		# random end of interval
+delta = random.uniform(0, functions.PRECISION)
 
-print("\n--------------------------\nSTART Golden ratio method")
+print("\n--------------------------\nSTART Dichotomy method")
 
 f_x = functions.z(a)			# value of function at <a> point after initialization
 print("a % 9.5f   f(a) % 9.5f" % (a, f_x))
 f_x = functions.z(b)			# value of function at <b> point after initialization
 print("b % 9.5f   f(b) % 9.5f" % (b, f_x))
+print("delta %.5f" % delta)
 
 time_start = functions.current_time()	# program started at <time_start> time
 
 iteration_number = 1
 
 while (True):
-	golden_ratio = functions.golden_ratio_iteration(a, b)	# make one iteration
+	dichotomy = functions.dichotomy_iteration(a, b, delta)	# make one iteration
 	
-	a = golden_ratio["a"]
-	b = golden_ratio["b"]
-	interval_length = golden_ratio["interval_length"]
+	a = dichotomy["a"]
+	b = dichotomy["b"]
+	interval_length = dichotomy["interval_length"]
 	
 	time_calculation = functions.time_dif(time_start)
 
 	if (interval_length < functions.PRECISION):			# compare with precision
 		break
 	if (time_calculation > functions.TIME_LIMIT):	# nobody wants to wait too much
-		print("ERROR: bad limits caused long time calculation (more than ", functions.TIME_LIMIT, " seconds).")
+		print("WARNING: long time calculation caused by very big value of delta (too close to PRECISION)")
 		break
 	iteration_number += 1
 
@@ -41,5 +43,6 @@ f_x = functions.z(a)
 print("a % 9.5f   f(a) % 9.5f" % (a, f_x))
 f_x = functions.z(b)
 print("b % 9.5f   f(b) % 9.5f" % (b, f_x))
+print("interval_length ", interval_length)
 print("\niterations   ", iteration_number)
 print("calculation time % .5f\n--------------------------\n" % time_calculation)
