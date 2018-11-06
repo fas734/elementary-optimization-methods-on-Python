@@ -1,9 +1,9 @@
-import time
+from time import time as current_time
 
-ALPHA = .6
-BETTA = .4
-PRECISION = .001
-TIME_LIMIT = 1
+ALPHA = .6			# for golden ratio method
+BETTA = .4			# for golden ratio method
+PRECISION = .001	# precision of calculation
+TIME_LIMIT = 1		# calculation time limit in minutes
 
 
 def z(x):
@@ -18,11 +18,11 @@ def f(x):
 	return result
 
 
-def time_dif(value):
-	return (time.time() - value)
+def time_dif(value):		# time difference between now and <value> moments
+	return (current_time() - value)
 
 
-def iteration(a, b):
+def golden_ratio_iteration(a, b):	# one golden ratio iteration
 	delta = abs(b-a)
 
 	x_a = a + ALPHA*delta
@@ -35,4 +35,4 @@ def iteration(a, b):
 		a = x_b
 	else:
 		b = x_a
-	return {"a":a, "b":b, "delta":delta}
+	return {"a":a, "b":b, "delta":delta}	# returns new interval
