@@ -6,19 +6,46 @@ sys.path.insert(0,parentdir)
 import functions
 
 									# initialize
-a = random.randint(0, 13) - 1100	# random start of interval
-b = random.randint(0, 13) + 1000	# random end of interval
+a = random.randint(0, 13) - 1000	# random start of interval
+b = random.randint(0, 13) + 900	# random end of interval
 
-print("\n--------------------------\nSTART Fibonacci method")
+print("\n-------------------------\nSTART Fibonacci method")
 
-n = 2	# start finding n from 2
-f_n_plus_2 = abs(b-a) / functions.PRECISION
-n_find = functions.fib_bine(n)
-print("f_n_plus_2 ", f_n_plus_2)
-print("n_find     ", n_find)
-while(f_n_plus_2 > n_find):
+f_x = functions.z(a)			# value of function at <a> point after initialization
+print("a % 9.5f   f(a) % 9.5f" % (a, f_x))
+f_x = functions.z(b)			# value of function at <b> point after initialization
+print("b % 9.5f   f(b) % 9.5f" % (b, f_x))
+
+n = 3				# start finding n from 3
+f_n = abs(b-a) / functions.PRECISION	# value of fibonacci function should be at least <f_n>
+f_n_find = functions.fib_binet(n)
+print("f_n should be >= %d" % f_n)
+while(f_n > f_n_find):
 	n += 1
-	n_find = functions.fib_bine(n)
-	print("%d" % n_find)
-n -= 2
+	f_n_find = functions.fib_binet(n)
+print("fibonacci(%d) == %d" % (n, f_n_find))
 print("Calculation requires %d iterations" % n)
+
+time_start = functions.current_time()	# program started at <time_start> time
+
+iteration_number = 1
+
+while(iteration_number < n):
+	fibonacci = functions.fib_iteration(a,b,iteration_number,n)
+
+	a = fibonacci["a"]
+	b = fibonacci["b"]
+
+	time_calculation = functions.time_dif(time_start)
+	if (time_calculation > functions.TIME_LIMIT):	# nobody wants to wait too much
+		print("WARNING: long time calculation")
+		break
+	iteration_number += 1
+
+print("\nRESULT")
+f_x = functions.z(a)
+print("a % 9.5f   f(a) % 9.5f" % (a, f_x))
+f_x = functions.z(b)
+print("b % 9.5f   f(b) % 9.5f" % (b, f_x))
+print("\niterations   ", iteration_number)
+print("calculation time % .5f\n-------------------------\n" % time_calculation)

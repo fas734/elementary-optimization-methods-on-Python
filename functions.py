@@ -23,7 +23,7 @@ def time_dif(value):		# time difference between now and <value> moments
 	return (current_time() - value)
 
 
-def fib_bine(n):
+def fib_binet(n):	# returns fibonacci function value of <n>
 	result = (((1+math.sqrt(5))/2)**n - ((1-math.sqrt(5))/2)**n) \
 				/ math.sqrt(5)
 	return(result)
@@ -62,4 +62,21 @@ def dichotomy_iteration(a, b, delta):
 
 	interval_length = abs(b-a)
 
-	return {"a":a, "b":b, "interval_length":interval_length}
+	return {"a":a, "b":b, "interval_length":interval_length}	# returns new interval
+
+
+def fib_iteration(a, b, k, n):	# one fibonacci iteration
+	interval_length = abs(b-a)
+
+	x_a = a + (fib_binet(n-k-2)/fib_binet(n-k))*interval_length
+	x_b = a + (fib_binet(n-k-1)/fib_binet(n-k))*interval_length
+
+	f_x_a = z(x_a)
+	f_x_b = z(x_b)
+
+	if (f_x_a < f_x_b):
+		b = x_b
+	else:
+		a = x_a
+
+	return {"a":a, "b":b}	# returns new interval
