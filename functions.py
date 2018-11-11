@@ -1,3 +1,4 @@
+import math
 from time import time as current_time
 
 ALPHA = .6			# for golden ratio method
@@ -20,6 +21,12 @@ def f(x):
 
 def time_dif(value):		# time difference between now and <value> moments
 	return (current_time() - value)
+
+
+def fib_bine(n):
+	result = (((1+math.sqrt(5))/2)**n - ((1-math.sqrt(5))/2)**n) \
+				/ math.sqrt(5)
+	return(result)
 
 
 def golden_ratio_iteration(a, b):	# one golden ratio iteration
