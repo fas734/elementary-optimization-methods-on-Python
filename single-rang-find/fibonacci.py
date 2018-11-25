@@ -7,7 +7,7 @@ import functions
 
 									# initialize
 a = random.randint(0, 13) - 1000	# random start of interval
-b = random.randint(0, 13) + 900	# random end of interval
+b = random.randint(0, 13) + 900		# random end of interval
 
 print("\n-------------------------\nSTART Fibonacci method")
 
