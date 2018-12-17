@@ -14,21 +14,21 @@ x_sym = list()	# symbols of multidimensional variable
 x_sym.append(x1)
 x_sym.append(x2)
 
+f_sym = 4 * (x1-5)**2 + 70 * (x2-2)**2 + 31	# symbolic function
+
 				# initialization of multidimensional variable
 x = dict()		# access to each component is through symbolic key
 for var_name in x_sym:
-	x[str(var_name)] = random.randint(0, 22) - 13	# random value of x components
+	x[str(var_name)] = float(random.randint(0, 22) - 13)	# random value of x components
 
-f_sym = 4 * (x1-5)**2 + 70 * (x2-2)**2 + 31	# symbolic function
+if(len(sys.argv) > 1):			# user can set the <x1> <x2> value
+	if(len(sys.argv)>=3):
+		if(float(sys.argv[2])!=0):
+			x['x1'] = float(sys.argv[2])
+	if(len(sys.argv)>=4):
+		if(float(sys.argv[3])!=0):
+			x['x2'] = float(sys.argv[3])
 
-if(len(sys.argv) > 1):				# user can set the <t> value, otherwise random [0.01, 0.99]
-	t = float(sys.argv[1])
-	if(len(sys.argv) >= 3):
-		x['x1'] = float(sys.argv[2])
-	if(len(sys.argv) == 4):
-		x['x2'] = float(sys.argv[3])
-else:
-	t = random.randint(1,100) / 100
 
 print("\n-------------------------\nSTART Gradient method")
 
@@ -36,14 +36,26 @@ print("X[0]")
 for item in x.items():
 	print(item)
 
-print("t =", t)
-
-grad_x = dict()
+grad_x = dict()				# gradient contains derivatives
 for key in x.keys():
 	grad_x[key] = sympy.diff(f_sym, key, 1)
 
-stop_iteration = False		# condition to stop: grad_x < PRECISION
+max_grad_x_0 = abs(grad_x['x1'].subs({x1:x['x1']}))		# find max value of grad to generate <t> parameter
+for key in grad_x.keys():
+	if(abs(grad_x[key].subs({key:x[key]})) > max_grad_x_0):
+		max_grad_x_0 = abs(grad_x[key].subs({key:x[key]}))
 
+if(len(sys.argv)>1):	# user can set the <t> value
+	if(float(sys.argv[1])!=0):
+		t = float(sys.argv[1])
+	else:
+		t = 1 / float(max_grad_x_0)
+else:
+	t = 1 / float(max_grad_x_0)
+print("t =", t)
+
+
+stop_iteration = False		# condition to stop: grad_x[i] < PRECISION
 time_start = functions.current_time()	# program started at <time_start> time
 
 iteration_number = 0
@@ -56,20 +68,22 @@ for key in grad_x.keys():
 while((not stop_iteration) & (iteration_number<functions.ITERATION_LIMIT)):
 	iteration_number += 1
 	for key in x.keys():
+		x[key] = x[key] - t*grad_x[key].subs({key: x[key]})		# iteration
 		print('x[', key, ']', x[key], sep='')
-		x[key] = x[key] - t*grad_x[key].subs({key: x[key]})
-		print('x[', key, ']', x[key], sep='')
+	print()
 
 	for key in grad_x.keys():
 		if(abs(grad_x[key].subs({key: x[key]})) < functions.PRECISION):	# grad_x < PRECISION?
 			stop_iteration = True
+			break
 
 time_calculation = functions.time_dif(time_start)
 
 for key in grad_x.keys():
-	print("grad_x['", key, "'] := ", grad_x[key], " = ", grad_x[key].subs({key:x[key]}), sep='')
+	print("grad_x['%s']: %15s = % 7.3f" % (key,grad_x[key], grad_x[key].subs({key:x[key]})))
 
 print("\nRESULT")
+print('%s = % 7.3f' % (f_sym, f_sym.subs({x1:x['x1'], x2:x['x2']})))
 print("\niterations   ", iteration_number)
 print("calculation time % .5f" % time_calculation)
 print("--------------------------\n")
