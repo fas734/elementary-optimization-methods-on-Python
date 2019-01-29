@@ -6,6 +6,7 @@ BETTA = .4			# for golden ratio method
 PRECISION = .001	# precision of calculation
 TIME_LIMIT = 7		# calculation time limit in seconds
 ITERATION_LIMIT = 1000	# limit number of iteration
+########################## PYTHON HISTORY: .python_history #######################
 
 
 def z(x):
