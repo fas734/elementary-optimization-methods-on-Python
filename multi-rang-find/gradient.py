@@ -10,7 +10,7 @@ import functions
 import sympy
 
 
-# ************************* initialization begin *************************
+# ************************* initialization BEGIN *************************
 sym_x1 = sympy.Symbol('x1')	# symbol <x1>
 sym_x2 = sympy.Symbol('x2')	# symbol <x2>
 
@@ -32,10 +32,10 @@ if(len(sys.argv) > 1):			# user can set the <x1> <x2> value
 	if(len(sys.argv)>=4):
 		if(float(sys.argv[3])!=0):
 			x['x2'] = float(sys.argv[3])
-# ************************* initialization end *************************
+# ************************* initialization END *************************
 
 
-# ************************* find t begin *************************
+# ************************* find grad_x, t BEGIN *************************
 print("\n-------------------------\nSTART Gradient method\n")
 
 print("     X[0]")
@@ -59,13 +59,12 @@ if(len(sys.argv)>1):		# user can set the <t> value
 else:
 	t = 1 / float(max_grad_x_0)
 print("t =", t)
-# ************************* find t end *************************
+# ************************* find t END *************************
 
 
-# ************************* iteration begin *************************
+# ************************* iteration BEGIN *************************
 stop_iteration = False				# condition to stop: grad_x[i] < PRECISION
 time_start = functions.current_time()	# program started at <time_start> time
-
 iteration_number = 0
 
 for key in grad_x.keys():
@@ -86,7 +85,7 @@ while((not stop_iteration) & (iteration_number<functions.ITERATION_LIMIT)):
 			break
 
 time_calculation = functions.time_dif(time_start)
-# ************************* iteration end *************************
+# ************************* iteration END *************************
 
 
 print("\n\nRESULT\n")
