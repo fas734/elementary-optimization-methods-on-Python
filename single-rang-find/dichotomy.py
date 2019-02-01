@@ -10,6 +10,17 @@ a = random.randint(0, 13) - 1000	# random start of interval
 b = random.randint(0, 13) + 900		# random end of interval
 delta = random.uniform(0, functions.PRECISION)
 
+if(len(sys.argv) > 1):			# user can set the <a> <b> <t> value
+	if(len(sys.argv)>=2):
+		if(float(sys.argv[1])!=0):
+			a = float(sys.argv[1])
+	if(len(sys.argv)>=3):
+		if(float(sys.argv[2])!=0):
+			b = float(sys.argv[2])
+	if(len(sys.argv)>=4):
+		if(float(sys.argv[3])!=0):
+			delta = float(sys.argv[3])
+
 print("\n--------------------------\nSTART Dichotomy method")
 
 f_x = functions.z(a)			# value of function at <a> point after initialization

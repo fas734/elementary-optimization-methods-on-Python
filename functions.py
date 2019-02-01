@@ -6,7 +6,7 @@ BETTA = .4			# for golden ratio method
 PRECISION = .001	# precision of calculation
 TIME_LIMIT = 7		# calculation time limit in seconds
 ITERATION_LIMIT = 1000	# limit number of iteration
-########################## PYTHON HISTORY: .python_history #######################
+###################### PYTHON HISTORY: .python_history #####################
 
 
 def z(x):
@@ -81,4 +81,6 @@ def fib_iteration(a, b, k, n):	# one fibonacci iteration
 	else:
 		a = x_a
 
-	return {"a":a, "b":b}	# returns new interval
+	interval_length = abs(b-a)
+
+	return {"a":a, "b":b, "interval_length":interval_length}	# returns new interval

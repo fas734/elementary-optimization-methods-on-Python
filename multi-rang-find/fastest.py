@@ -1,3 +1,7 @@
+# user can run program with parameters:
+#	fastest.py	<method> <x1> <x2>
+#		where <method> == 'd' if dichotomy, 'g' if golden ratio
+
 import random
 import os,sys,inspect
 currentdir = os.path.dirname(os.path.abspath(inspect.getfile(inspect.currentframe())))
@@ -7,7 +11,67 @@ import functions
 import sympy
 
 
-# ************************* initialization BEGIN *************************
+# ************************ finding <t> functions BEGIN *********************
+# dichotomy BEGIN
+def dichotomy():
+	a = random.randint(0, 13) - 1000	# random start of interval
+	b = random.randint(0, 13) + 900		# random end of interval
+	delta = random.uniform(0, functions.PRECISION)
+
+	time_start = functions.current_time()	# program started at <time_start> time
+	iteration_number = 1
+
+	while (True):
+		dichotomy = functions.dichotomy_iteration(a, b, delta)	# make one iteration
+		
+		a = dichotomy["a"]
+		b = dichotomy["b"]
+		interval_length = dichotomy["interval_length"]
+		
+		time_calculation = functions.time_dif(time_start)
+
+		if (interval_length < functions.PRECISION):			# compare with precision
+			break
+		if (time_calculation > functions.TIME_LIMIT):	# nobody wants to wait too much
+			print("WARNING: long time calculation caused by very big value of delta (too close to PRECISION)")
+			break
+		iteration_number += 1
+
+	return((a+b) / 2)
+# dichotomy END
+
+
+# golden ratio BEGIN
+def golden_ratio():
+	a = random.randint(0, 13) - 1000	# random start of interval
+	b = random.randint(0, 13) + 900		# random end of interval
+
+	time_start = functions.current_time()	# program started at <time_start> time
+	iteration_number = 1
+
+	while (True):
+		golden_ratio = functions.golden_ratio_iteration(a, b)	# make one iteration
+		
+		a = golden_ratio["a"]
+		b = golden_ratio["b"]
+		interval_length = golden_ratio["interval_length"]
+		
+		time_calculation = functions.time_dif(time_start)
+
+		if (interval_length < functions.PRECISION):			# compare with precision
+			break
+		if (time_calculation > functions.TIME_LIMIT):	# nobody wants to wait too much
+			print("ERROR: bad limits caused long time calculation (more than ", functions.TIME_LIMIT, " seconds).")
+			break
+		iteration_number += 1
+
+	return((a+b) / 2)
+# golden ratio END
+# ************************ finding <t> functions END ***********************
+
+
+# ************************* ALGORITHM itself BEGIN *************************
+# ************************* initialization BEGIN ***************************
 sym_t = sympy.Symbol('t')	# symbol <t>
 sym_x1 = sympy.Symbol('x1')	# symbol <x1>
 sym_x2 = sympy.Symbol('x2')	# symbol <x2>
@@ -30,10 +94,10 @@ if(len(sys.argv) > 1):			# user can set the <x1> <x2> value
 	if(len(sys.argv)>=4):
 		if(float(sys.argv[3])!=0):
 			x['x2'] = float(sys.argv[3])
-# ************************* initialization END *************************
+# ************************* initialization END *****************************
 
 
-# ************************* find grad BEGIN *************************
+# ************************* find grad BEGIN ********************************
 print("\n-------------------------\nSTART Fastest method\n")
 
 print("     X[0]")
@@ -58,4 +122,6 @@ for key in grad_x.keys():
 
 while((not stop_iteration) & (iteration_number<functions.ITERATION_LIMIT)):
 	iteration_number += 1
-	
+
+
+# ************************* ALGORITHM itself END ***************************
