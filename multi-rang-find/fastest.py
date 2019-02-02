@@ -11,7 +11,7 @@ import functions
 import sympy
 
 
-# ************************ finding <t> functions BEGIN *********************
+# ************************ functions finding <t> BEGIN *********************
 # dichotomy BEGIN
 def dichotomy():
 	a = random.randint(0, 13) - 1000	# random start of interval
@@ -80,7 +80,7 @@ x_syms = list()	# symbols of multidimensional variable
 x_syms.append(sym_x1)
 x_syms.append(sym_x2)
 
-f_sym = 4 * (sym_x1-5)**2 + 70 * (sym_x2-2)**2 + 31	# symbolic function
+f_syms = 4 * (sym_x1-5)**2 + 70 * (sym_x2-2)**2 + 31	# symbolic function
 
 				# initialization of multidimensional variable
 x = dict()		# access to each component is through symbolic key
@@ -106,7 +106,7 @@ for key in x.keys():
 
 grad_x = dict()					# gradient contains derivatives
 for key in x.keys():
-	grad_x[key] = sympy.diff(f_sym, key, 1)		# derivative of f_sym by key, order 1
+	grad_x[key] = sympy.diff(f_syms, key, 1)		# derivative of f_syms by key, order 1
 # ************************* find grad END *************************
 
 
@@ -122,6 +122,16 @@ for key in grad_x.keys():
 
 while((not stop_iteration) & (iteration_number<functions.ITERATION_LIMIT)):
 	iteration_number += 1
+
+	x_sym_t = dict()		# each component contains symbol <t>
+	for key in x.keys():
+		x_sym_t[key] = x[key] - sym_t * grad_x[key].subs({key: x[key]})	# iteration itself
+
+	f_sym_t = f_syms		# f_sym_t will contain only symbol <t>, not syms <x1>, <x2>
+	for key in x.keys():
+		f_sym_t = f_sym_t.subs({key: x_sym_t[key]})
+
+# print("x_sym_t\n",x_sym_t,"\n",f_sym_t)
 
 
 # ************************* ALGORITHM itself END ***************************
