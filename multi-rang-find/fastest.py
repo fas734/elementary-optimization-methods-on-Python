@@ -11,29 +11,52 @@ import functions
 import sympy
 
 
-# ************************ finding <t> functions BEGIN *********************
+# ************************ functions finding <t> BEGIN *********************
 # dichotomy BEGIN
-def dichotomy():
+def dichotomy(f_sym_t, delta = 0):
 	a = random.randint(0, 13) - 1000	# random start of interval
 	b = random.randint(0, 13) + 900		# random end of interval
-	delta = random.uniform(0, functions.PRECISION)
+	if(delta == 0):
+		delta = random.uniform(0, functions.PRECISION)
+	
+	while (True):
+		x_l1 = (a+b)/2 - delta
+		x_l2 = (a+b)/2 + delta
+
+		f_a = f_sym_t.subs({sym_t: a})
+		f_b = f_sym_t.subs({sym_t: b})
+		f_x_1 = f_sym_t.subs({sym_t: x_l1})
+		f_x_2 = f_sym_t.subs({sym_t: x_l2})
+
+		# make sure interval is OK:
+		if(((f_a > f_x_1) | (f_a > f_x_2)) & ((f_b > f_x_2) | (f_b > f_x_1))):
+			break
+		else:
+			a -= 1000
+			b += 1000
 
 	time_start = functions.current_time()	# program started at <time_start> time
 	iteration_number = 1
 
 	while (True):
-		dichotomy = functions.dichotomy_iteration(a, b, delta)	# make one iteration
-		
-		a = dichotomy["a"]
-		b = dichotomy["b"]
-		interval_length = dichotomy["interval_length"]
+		x_l1 = (a+b)/2 - delta
+		x_l2 = (a+b)/2 + delta
+
+		f_x_1 = f_sym_t.subs({sym_t: x_l1})
+		f_x_2 = f_sym_t.subs({sym_t: x_l2})
+
+		if (f_x_1 < f_x_2):
+			b = x_l2
+		else:
+			a = x_l1
+		interval_length = abs(b-a)
 		
 		time_calculation = functions.time_dif(time_start)
 
 		if (interval_length < functions.PRECISION):			# compare with precision
 			break
 		if (time_calculation > functions.TIME_LIMIT):	# nobody wants to wait too much
-			print("WARNING: long time calculation caused by very big value of delta (too close to PRECISION)")
+			print("WARNING: long time calculation. interval_length: %.4f" % interval_length)
 			break
 		iteration_number += 1
 
@@ -42,7 +65,7 @@ def dichotomy():
 
 
 # golden ratio BEGIN
-def golden_ratio():
+def golden_ratio(f_sym_t):
 	a = random.randint(0, 13) - 1000	# random start of interval
 	b = random.randint(0, 13) + 900		# random end of interval
 
@@ -80,7 +103,7 @@ x_syms = list()	# symbols of multidimensional variable
 x_syms.append(sym_x1)
 x_syms.append(sym_x2)
 
-f_sym = 4 * (sym_x1-5)**2 + 70 * (sym_x2-2)**2 + 31	# symbolic function
+f_syms = 4 * (sym_x1-5)**2 + 70 * (sym_x2-2)**2 + 31	# symbolic function
 
 				# initialization of multidimensional variable
 x = dict()		# access to each component is through symbolic key
@@ -106,7 +129,7 @@ for key in x.keys():
 
 grad_x = dict()					# gradient contains derivatives
 for key in x.keys():
-	grad_x[key] = sympy.diff(f_sym, key, 1)		# derivative of f_sym by key, order 1
+	grad_x[key] = sympy.diff(f_syms, key, 1)		# derivative of f_syms by key, order 1
 # ************************* find grad END *************************
 
 
@@ -123,5 +146,33 @@ for key in grad_x.keys():
 while((not stop_iteration) & (iteration_number<functions.ITERATION_LIMIT)):
 	iteration_number += 1
 
+	x_sym_t = dict()		# each component contains symbol <t>
+	for key in x.keys():
+		x_sym_t[key] = x[key] - sym_t * grad_x[key].subs({key: x[key]})	# iteration itself
+
+	f_sym_t = f_syms		# f_sym_t will contain only symbol <t>, not syms <x1>, <x2>
+	for key in x.keys():
+		f_sym_t = f_sym_t.subs({key: x_sym_t[key]})
+
+	t = dichotomy(f_sym_t)
+	print("t:", t)
+	print("\nx_sym_t\n",x_sym_t,"\nf_sym_t\n",f_sym_t)
+	for key in x.keys():
+		x[key] = x_sym_t[key].subs({sym_t: t})
+		print(key, x[key])
+
+	for key in grad_x.keys():
+		if(abs(grad_x[key].subs({key: x[key]})) < functions.PRECISION):	# grad_x < PRECISION?
+			stop_iteration = True
+			break
+
+time_calculation = functions.time_dif(time_start)
+
+print("\n\nRESULT\n")
+for key in x.keys():
+	print("x[%s] = % .3f" % (key, x[key]))
+print("\niterations   ", iteration_number)
+print("calculation time % .5f" % time_calculation)
+print("--------------------------\n")
 
 # ************************* ALGORITHM itself END ***************************
