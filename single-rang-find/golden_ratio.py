@@ -1,3 +1,7 @@
+# user can run program with parameters:
+#	golden_ratio.py		<a> <b>
+#		where <a> <b> is interval
+
 import random
 import os,sys,inspect
 currentdir = os.path.dirname(os.path.abspath(inspect.getfile(inspect.currentframe())))

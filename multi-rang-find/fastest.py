@@ -24,7 +24,7 @@ def dichotomy(f_sym_t, delta = 0):
 	a = random.randint(0, 13) - 1000	# random start of interval
 	b = random.randint(0, 13) + 900		# random end of interval
 	if(delta == 0):
-		delta = random.uniform(0, functions.PRECISION)
+		delta = random.uniform(0, functions.PRECISION/2)
 	
 	while (True):
 		x_l1 = (a+b)/2 - delta

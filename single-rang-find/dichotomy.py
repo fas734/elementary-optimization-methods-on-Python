@@ -1,3 +1,7 @@
+# user can run program with parameters:
+#	dichotomy.py		<a> <b> <delta>
+#		where <a> <b> is interval
+
 import random
 import os,sys,inspect
 currentdir = os.path.dirname(os.path.abspath(inspect.getfile(inspect.currentframe())))
@@ -8,7 +12,7 @@ import functions
 									# initialize
 a = random.randint(0, 13) - 1000	# random start of interval
 b = random.randint(0, 13) + 900		# random end of interval
-delta = random.uniform(0, functions.PRECISION)
+delta = random.uniform(0, functions.PRECISION/2)
 
 if(len(sys.argv) > 1):			# user can set the <a> <b> <t> value
 	if(len(sys.argv)>=2):

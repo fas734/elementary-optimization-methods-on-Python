@@ -1,5 +1,5 @@
 # user can run program with parameters:
-#	gradient.py	<t> <x1> <x2>
+#	gradient.py		<t> <x1> <x2>
 
 import random
 import os,sys,inspect
