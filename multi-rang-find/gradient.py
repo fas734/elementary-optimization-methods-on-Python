@@ -91,12 +91,12 @@ time_calculation = functions.time_dif(time_start)
 print("\n\nRESULT\n")
 
 for key in x.keys():
-	print("x[%s] = % .3f" % (key, x[key]))
+	print("x[%s] = % .6f" % (key, x[key]))
 print()
 for key in grad_x.keys():
-	print("grad_x['%s']: %15s = % 7.3f" % (key,grad_x[key], grad_x[key].subs({key: x[key]})))
+	print("grad_x['%s']: %15s = % 7.4f" % (key,grad_x[key], grad_x[key].subs({key: x[key]})))
 
-print("\n%s = % 7.3f" % (f_sym, f_sym.subs({sym_x1: x['x1'], sym_x2: x['x2']})))
+print("\n%s = % 7.6f" % (f_sym, f_sym.subs({sym_x1: x['x1'], sym_x2: x['x2']})))
 print("\niterations   ", iteration_number)
-print("calculation time % .5f" % time_calculation)
+print("calculation time % .6f" % time_calculation)
 print("--------------------------\n")

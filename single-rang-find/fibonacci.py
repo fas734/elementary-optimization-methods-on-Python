@@ -57,9 +57,9 @@ while(iteration_number < n):
 
 print("\nRESULT")
 f_x = functions.z(a)
-print("a % 9.5f   f(a) % 9.5f" % (a, f_x))
+print("a % 9.6f   f(a) % 9.6f" % (a, f_x))
 f_x = functions.z(b)
-print("b % 9.5f   f(b) % 9.5f" % (b, f_x))
+print("b % 9.6f   f(b) % 9.6f" % (b, f_x))
 print("interval_length ", interval_length)
 print("\niterations   ", iteration_number)
-print("calculation time % .5f\n-------------------------\n" % time_calculation)
+print("calculation time % .6f\n-------------------------\n" % time_calculation)
